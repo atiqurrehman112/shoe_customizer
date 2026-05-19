@@ -2,8 +2,18 @@ import React, { useState } from "react";
 import { useSnapshot } from "valtio";
 import state from "../store";
 
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  sendPasswordResetEmail,
+  updateProfile,
+} from "firebase/auth";
+
+import { auth } from "../firebase";
+
 const Auth = () => {
   const snap = useSnapshot(state);
+
   const [isLogin, setIsLogin] = useState(true);
 
   const [formData, setFormData] = useState({
@@ -14,50 +24,103 @@ const Auth = () => {
 
   if (!snap.authPage) return null;
 
+  const handleSignup = async () => {
+    try {
+      const userCredential = await createUserWithEmailAndPassword(
+        auth,
+        formData.email,
+        formData.password
+      );
+
+      await updateProfile(userCredential.user, {
+        displayName: formData.name,
+      });
+
+      alert("Signup successful! Please login.");
+      setIsLogin(true);
+
+      setFormData({
+        name: "",
+        email: "",
+        password: "",
+      });
+    } catch (error) {
+      console.log(error);
+
+      if (error.code === "auth/email-already-in-use") {
+        alert("Email already exists");
+      } else if (error.code === "auth/weak-password") {
+        alert("Password should be at least 6 characters");
+      } else {
+        alert(error.message);
+      }
+    }
+  };
+
+  const handleLogin = async () => {
+    try {
+      const userCredential = await signInWithEmailAndPassword(
+        auth,
+        formData.email,
+        formData.password
+      );
+
+      const user = userCredential.user;
+
+      state.currentUser = {
+        id: user.uid,
+        name: user.displayName,
+        email: user.email,
+      };
+
+      localStorage.setItem(
+        "user",
+        JSON.stringify(state.currentUser)
+      );
+
+      state.authPage = false;
+
+      alert("Login successful!");
+    } catch (error) {
+      console.log(error);
+
+      if (error.code === "auth/user-not-found") {
+        alert("User not found");
+      } else if (error.code === "auth/wrong-password") {
+        alert("Incorrect password");
+      } else {
+        alert(error.message);
+      }
+    }
+  };
+
+  const handleForgotPassword = async () => {
+    if (!formData.email) {
+      return alert("Please enter your email");
+    }
+
+    try {
+      await sendPasswordResetEmail(auth, formData.email);
+
+      alert("Password reset email sent!");
+    } catch (error) {
+      console.log(error);
+
+      if (error.code === "auth/user-not-found") {
+        alert("No user found with this email");
+      } else {
+        alert(error.message);
+      }
+    }
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const url = isLogin
-      ? "http://localhost:5000/api/auth/login"
-      : "http://localhost:5000/api/auth/signup";
-
-    const body = isLogin
-      ? {
-          email: formData.email,
-          password: formData.password,
-        }
-      : formData;
-
-    try {
-      const res = await fetch(url, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(body),
-      });
-
-      const data = await res.json();
-
-      if (res.ok) {
-        if (isLogin) {
-          state.currentUser = data.user;
-          state.token = data.token;
-          localStorage.setItem("user", JSON.stringify(data.user));
-          localStorage.setItem("token", data.token);
-
-          state.authPage = false;
-          alert("Login successful!");
-        } else {
-          alert("Signup successful! Please login now.");
-          setIsLogin(true);
-        }
-      } else {
-        alert(data.message || "Authentication failed");
-      }
-    } catch (error) {
-      console.log("Auth error:", error);
-      alert("Backend connection failed");
+    if (isLogin) {
+      await handleLogin();
+    } else {
+      await handleSignup();
     }
   };
 
@@ -77,7 +140,10 @@ const Auth = () => {
             placeholder="Full Name"
             value={formData.name}
             onChange={(e) =>
-              setFormData({ ...formData, name: e.target.value })
+              setFormData({
+                ...formData,
+                name: e.target.value,
+              })
             }
             className="w-full border p-3 rounded-lg mb-4"
             required
@@ -89,7 +155,10 @@ const Auth = () => {
           placeholder="Email Address"
           value={formData.email}
           onChange={(e) =>
-            setFormData({ ...formData, email: e.target.value })
+            setFormData({
+              ...formData,
+              email: e.target.value,
+            })
           }
           className="w-full border p-3 rounded-lg mb-4"
           required
@@ -100,7 +169,10 @@ const Auth = () => {
           placeholder="Password"
           value={formData.password}
           onChange={(e) =>
-            setFormData({ ...formData, password: e.target.value })
+            setFormData({
+              ...formData,
+              password: e.target.value,
+            })
           }
           className="w-full border p-3 rounded-lg mb-4"
           required
@@ -110,12 +182,24 @@ const Auth = () => {
           {isLogin ? "Login" : "Signup"}
         </button>
 
+        {isLogin && (
+          <button
+            type="button"
+            onClick={handleForgotPassword}
+            className="w-full mt-3 text-blue-600 font-bold"
+          >
+            Forgot Password?
+          </button>
+        )}
+
         <button
           type="button"
           onClick={() => setIsLogin(!isLogin)}
           className="w-full mt-3 border border-black py-3 rounded-lg font-bold"
         >
-          {isLogin ? "Create New Account" : "Already have account? Login"}
+          {isLogin
+            ? "Create New Account"
+            : "Already have account? Login"}
         </button>
 
         <button

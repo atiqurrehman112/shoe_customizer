@@ -8,6 +8,7 @@ import { EditorTabs, FilterTabs, DecalTypes } from "../config/constants";
 import { fadeAnimation, slideAnimation } from "../config/motion";
 import { ColorPicker, FilePicker, Tab, CustomButton } from "../components";
 import PlugDevRev from "../components/PlugDevRev";
+import ShoeSelector from "../components/ShoeSelector";
 
 const Customizer = () => {
   const snap = useSnapshot(state);
@@ -126,6 +127,7 @@ const Customizer = () => {
     <AnimatePresence>
       {!snap.intro && (
         <>
+          <ShoeSelector />
           <motion.div
             key="custom"
             className="absolute top-0 left-0 z-10"

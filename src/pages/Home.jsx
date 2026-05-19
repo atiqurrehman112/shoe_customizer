@@ -163,7 +163,7 @@ const Home = () => {
                 />
 
                 <h2 className="text-3xl font-black mb-4">
-                  Complete FYP System
+                  Shoe Customizer
                 </h2>
 
                 <div className="grid gap-4">

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # 3D Shoe Customizer
 
 ![3D Shoe Customizer](./public/readme-shoe-cust.png)
@@ -49,3 +50,6 @@ Contributions are welcome! If you have ideas or improvements to suggest, please 
 
 License
 This project is licensed under the MIT License.
+=======
+# shoe_customizer
+>>>>>>> 22c3a25060d56b1ae78e4f3a1f2d57e86e14d9eb
