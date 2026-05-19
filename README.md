@@ -1,119 +1,164 @@
-3D Shoe Customizer 👟
+# 👟 3D Shoe Customizer Platform
 
-A modern full-stack 3D Shoe Customization Platform built using React, Three.js, Firebase Authentication, Node.js, Express, and MongoDB.
-Users can customize shoes in real-time using interactive 3D models, save designs, place orders, track orders, and manage accounts securely.
+![3D Shoe Customizer](./public/readme-shoe-cust.png)
 
-🚀 Features
-🎨 3D Shoe Customization
-Real-time 3D shoe editing
-Multiple shoe models
-Color customization
-Logo upload
-Texture customization
-Download customized design
-👤 Authentication
-Firebase Email/Password Authentication
-Login & Signup
-Forgot Password Email Reset
-User session management
-🛒 Ordering System
-Place custom shoe orders
-Dynamic order details
-Order tracking
-My Orders page
-Save customized designs
-⭐ Reviews System
-Customer reviews & ratings
-Admin review management
-🛠 Admin Dashboard
-Admin login
-Manage customer orders
-Update order statuses
-View order details
-Manage reviews
-💾 Database
-MongoDB integration
-Store:
-Orders
-Reviews
-Saved Designs
-User-related data
-🧰 Technologies Used
-Frontend
-React.js
-Vite
-Tailwind CSS
-Three.js
-React Three Fiber
-Drei
-Framer Motion
-Valtio
-Backend
-Node.js
-Express.js
-MongoDB
-Mongoose
-Authentication
-Firebase Authentication
-📂 Project Structure
+A modern full-stack **3D Shoe Customization Platform** that allows users to customize shoes in real-time using interactive 3D models, save designs, place orders, track orders, and manage accounts securely.
+
+Built using **React, Three.js, Firebase Authentication, Node.js, Express, and MongoDB**.
+
+---
+
+# 🚀 Features
+
+## 🎨 3D Shoe Customization
+- Real-time 3D shoe editing
+- Multiple shoe models
+- Dynamic color customization
+- Logo upload support
+- Texture customization
+- Download customized shoe design
+- Interactive custom cursor
+
+---
+
+## 👤 Authentication System
+- Firebase Email/Password Authentication
+- Login & Signup
+- Forgot Password Email Reset
+- Persistent Login Sessions
+
+---
+
+## 🛒 Order Management
+- Place customized shoe orders
+- Save custom designs
+- Order tracking system
+- My Orders page
+- Dynamic pricing system
+
+---
+
+## ⭐ Reviews & Feedback
+- Customer reviews & ratings
+- Review management system
+
+---
+
+## 🛠 Admin Dashboard
+- Admin login system
+- Manage customer orders
+- Update order statuses
+- Delete orders
+- Manage customer reviews
+- Export order data
+
+---
+
+## 💾 Database Integration
+MongoDB is used to store:
+- Orders
+- Saved Designs
+- Reviews
+- User-related order data
+
+---
+
+# 🧰 Technologies Used
+
+## Frontend
+- [React](https://reactjs.org/)
+- [Vite](https://vitejs.dev/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [Framer Motion](https://www.framer.com/motion/)
+- [Valtio](https://github.com/pmndrs/valtio)
+
+---
+
+## 3D Rendering
+- [Three.js](https://threejs.org/)
+- [React Three Fiber](https://github.com/pmndrs/react-three-fiber)
+- [React Drei](https://github.com/pmndrs/drei)
+
+---
+
+## Backend
+- Node.js
+- Express.js
+- MongoDB
+- Mongoose
+
+---
+
+## Authentication
+- Firebase Authentication
+
+---
+
+# 📂 Project Structure
+
+```bash
 3DShoeCustomizer/
 │
-├── client/
-│   ├── src/
-│   │   ├── canvas/
-│   │   ├── components/
-│   │   ├── pages/
-│   │   ├── store/
-│   │   └── firebase.js
+├── public/
+│   ├── models/
+│   └── textures/
+│
+├── src/
+│   ├── canvas/
+│   ├── components/
+│   ├── pages/
+│   ├── store/
+│   ├── config/
+│   └── firebase.js
 │
 ├── server/
 │   ├── models/
 │   ├── routes/
 │   ├── controllers/
 │   └── server.js
+
 ⚙️ Installation
+
 1️⃣ Clone Repository
+
 git clone https://github.com/atiqurrehman112/shoe_customizer.git
+cd shoe_customizer
+
 2️⃣ Install Frontend Dependencies
+
 npm install
+
 3️⃣ Install Backend Dependencies
+
 cd server
 npm install
+
 🔥 Firebase Setup
-Create Firebase project
+
+Create Firebase Project
 Enable Authentication
-Enable Email/Password Sign In
+Enable Email/Password Sign-In
 Create:
 src/firebase.js
-Add Firebase config
-import { initializeApp } from "firebase/app";
-import { getAuth } from "firebase/auth";
+Add your Firebase config
 
-const firebaseConfig = {
-  apiKey: "YOUR_API_KEY",
-  authDomain: "YOUR_DOMAIN",
-  projectId: "YOUR_ID",
-  storageBucket: "YOUR_BUCKET",
-  messagingSenderId: "YOUR_SENDER_ID",
-  appId: "YOUR_APP_ID",
-};
-
-const app = initializeApp(firebaseConfig);
-
-export const auth = getAuth(app);
 🍃 MongoDB Setup
 
-Create .env file inside server/
+Create .env inside server/
 
 MONGO_URI=your_mongodb_connection
 PORT=5000
+
 ▶️ Run Project
+
 Start Backend
 cd server
 npm start
 Start Frontend
 npm run dev
+
 📸 Main Pages
+
 Home Page
 3D Customizer
 Login / Signup
@@ -122,18 +167,34 @@ Order Tracking
 Customer Reviews
 My Orders
 Admin Dashboard
+
 🎯 Future Improvements
+
 Google Authentication
 AI Shoe Recommendation
 Payment Gateway Integration
 AR Shoe Preview
-Wishlist
+Wishlist System
+Cloudinary Image Storage
+Analytics Dashboard
 Live Chat Support
-Admin Analytics Dashboard
+
 👨‍💻 Developed By
 
 Atiq Ur Rehman
-Air University – Computer Science
+
+Air University – Computer Science Department
+
+🤝 Contributions
+
+Contributions are welcome!
+
+If you have ideas or improvements:
+
+Open an issue
+Submit a pull request
+
+Your feedback and enhancements are highly appreciated.
 
 📜 License
 
