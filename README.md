@@ -117,7 +117,7 @@ MongoDB is used to store:
 │   ├── controllers/
 │   └── server.js
 
-⚙️ Installation
+#⚙️ Installation
 
 1️⃣ Clone Repository
 
@@ -133,7 +133,7 @@ npm install
 cd server
 npm install
 
-🔥 Firebase Setup
+#🔥 Firebase Setup
 
 Create Firebase Project
 Enable Authentication
@@ -142,14 +142,14 @@ Create:
 src/firebase.js
 Add your Firebase config
 
-🍃 MongoDB Setup
+#🍃 MongoDB Setup
 
 Create .env inside server/
 
 MONGO_URI=your_mongodb_connection
 PORT=5000
 
-▶️ Run Project
+#▶️ Run Project
 
 Start Backend
 cd server
@@ -157,7 +157,7 @@ npm start
 Start Frontend
 npm run dev
 
-📸 Main Pages
+#📸 Main Pages
 
 Home Page
 3D Customizer
@@ -168,7 +168,7 @@ Customer Reviews
 My Orders
 Admin Dashboard
 
-🎯 Future Improvements
+#🎯 Future Improvements
 
 Google Authentication
 AI Shoe Recommendation
@@ -179,13 +179,13 @@ Cloudinary Image Storage
 Analytics Dashboard
 Live Chat Support
 
-👨‍💻 Developed By
+#👨‍💻 Developed By
 
 Atiq Ur Rehman
 
 Air University – Computer Science Department
 
-🤝 Contributions
+#🤝 Contributions
 
 Contributions are welcome!
 
@@ -196,6 +196,6 @@ Submit a pull request
 
 Your feedback and enhancements are highly appreciated.
 
-📜 License
+##📜 License
 
 This project is developed for educational and Final Year Project purposes.
