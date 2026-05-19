@@ -1,55 +1,140 @@
-<<<<<<< HEAD
-# 3D Shoe Customizer
+3D Shoe Customizer 👟
 
-![3D Shoe Customizer](./public/readme-shoe-cust.png)
+A modern full-stack 3D Shoe Customization Platform built using React, Three.js, Firebase Authentication, Node.js, Express, and MongoDB.
+Users can customize shoes in real-time using interactive 3D models, save designs, place orders, track orders, and manage accounts securely.
 
-This project is a 3D shoe customizer that allows users to create unique shoe designs. It's built with React, React Three Fiber, React Drei, Framer Motion, and Valtio for state management, using Vite for fast development.
-
-## Dependencies
-
-- [Vite](https://vitejs.dev/): A build tool for the project.
-- [React](https://reactjs.org/): A JavaScript library for building user interfaces.
-- [React Three Fiber](https://github.com/pmndrs/react-three-fiber): A React renderer for Three.js.
-- [React Drei](https://github.com/pmndrs/drei): A collection of useful helpers for React Three Fiber.
-- [Framer Motion](https://www.framer.com/motion/): A library for animations in React.
-- [Valtio](https://github.com/pmndrs/valtio): A state management library for React.
-
-## How to Run
-
-1. Clone this repository to your local machine:
-
-```
-git clone https://github.com/jimjabid/3DShoeCustomizer.git
-cd 3DShoeCustomizer
-```
-
-## Install dependencies:
-
-```
+🚀 Features
+🎨 3D Shoe Customization
+Real-time 3D shoe editing
+Multiple shoe models
+Color customization
+Logo upload
+Texture customization
+Download customized design
+👤 Authentication
+Firebase Email/Password Authentication
+Login & Signup
+Forgot Password Email Reset
+User session management
+🛒 Ordering System
+Place custom shoe orders
+Dynamic order details
+Order tracking
+My Orders page
+Save customized designs
+⭐ Reviews System
+Customer reviews & ratings
+Admin review management
+🛠 Admin Dashboard
+Admin login
+Manage customer orders
+Update order statuses
+View order details
+Manage reviews
+💾 Database
+MongoDB integration
+Store:
+Orders
+Reviews
+Saved Designs
+User-related data
+🧰 Technologies Used
+Frontend
+React.js
+Vite
+Tailwind CSS
+Three.js
+React Three Fiber
+Drei
+Framer Motion
+Valtio
+Backend
+Node.js
+Express.js
+MongoDB
+Mongoose
+Authentication
+Firebase Authentication
+📂 Project Structure
+3DShoeCustomizer/
+│
+├── client/
+│   ├── src/
+│   │   ├── canvas/
+│   │   ├── components/
+│   │   ├── pages/
+│   │   ├── store/
+│   │   └── firebase.js
+│
+├── server/
+│   ├── models/
+│   ├── routes/
+│   ├── controllers/
+│   └── server.js
+⚙️ Installation
+1️⃣ Clone Repository
+git clone https://github.com/atiqurrehman112/shoe_customizer.git
+2️⃣ Install Frontend Dependencies
 npm install
-```
+3️⃣ Install Backend Dependencies
+cd server
+npm install
+🔥 Firebase Setup
+Create Firebase project
+Enable Authentication
+Enable Email/Password Sign In
+Create:
+src/firebase.js
+Add Firebase config
+import { initializeApp } from "firebase/app";
+import { getAuth } from "firebase/auth";
 
-## Start the development server:
+const firebaseConfig = {
+  apiKey: "YOUR_API_KEY",
+  authDomain: "YOUR_DOMAIN",
+  projectId: "YOUR_ID",
+  storageBucket: "YOUR_BUCKET",
+  messagingSenderId: "YOUR_SENDER_ID",
+  appId: "YOUR_APP_ID",
+};
 
-```
+const app = initializeApp(firebaseConfig);
+
+export const auth = getAuth(app);
+🍃 MongoDB Setup
+
+Create .env file inside server/
+
+MONGO_URI=your_mongodb_connection
+PORT=5000
+▶️ Run Project
+Start Backend
+cd server
+npm start
+Start Frontend
 npm run dev
-```
+📸 Main Pages
+Home Page
+3D Customizer
+Login / Signup
+Saved Designs
+Order Tracking
+Customer Reviews
+My Orders
+Admin Dashboard
+🎯 Future Improvements
+Google Authentication
+AI Shoe Recommendation
+Payment Gateway Integration
+AR Shoe Preview
+Wishlist
+Live Chat Support
+Admin Analytics Dashboard
+👨‍💻 Developed By
 
-Open your browser and navigate to http://localhost:5173 to use the 3D shoe customizer.
+Atiq Ur Rehman
+Air University – Computer Science
 
-## Features
+📜 License
 
-Customize 3D shoe designs with ease.
-Stunning visuals powered by React Three Fiber.
-Smooth animations and transitions with Framer Motion.
-State management with Valtio.
-
-## Contributions
-
-Contributions are welcome! If you have ideas or improvements to suggest, please open issues or submit pull requests. Your feedback and enhancements are highly appreciated.
-
-License
-This project is licensed under the MIT License.
-=======
-# shoe_customizer
->>>>>>> 22c3a25060d56b1ae78e4f3a1f2d57e86e14d9eb
+This project is developed for educational and Final Year Project purposes.
